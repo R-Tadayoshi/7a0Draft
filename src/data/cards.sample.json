@@ -1,0 +1,22 @@
+{
+  "fetchedAt": "sample",
+  "buildId": "sample",
+  "count": 14,
+  "_note": "Tiny hand-built sample so the app runs before you fetch the real DB. Replace with data/cards.json from tools/fetch_cards.mjs. Stats are illustrative, not official.",
+  "cards": [
+    { "id": "smp-legend-jinx", "name": "Jinx, Loose Cannon", "type": "Legend", "superTypes": [], "rarity": "Legend", "domains": ["Fury"], "tags": ["Jinx"], "oracle": "Your Chosen Champion must have the Jinx tag.", "keywords": [] },
+    { "id": "smp-champ-jinx", "name": "Jinx, Rebel", "type": "Unit", "superTypes": ["Champion"], "rarity": "Epic", "domains": ["Fury"], "energy": 5, "might": 5, "tags": ["Jinx"], "oracle": "When I conquer, deal 2 to a unit.", "keywords": [] },
+    { "id": "smp-unit-tinkerer", "name": "Zaun Tinkerer", "type": "Unit", "rarity": "Common", "domains": ["Fury"], "energy": 2, "might": 2, "tags": ["Zaun"], "oracle": "Accelerate.", "keywords": [{ "kw": "Accelerate" }] },
+    { "id": "smp-unit-bruiser", "name": "Chem-Bruiser", "type": "Unit", "rarity": "Common", "domains": ["Fury"], "energy": 3, "might": 4, "tags": ["Zaun"], "oracle": "Tank.", "keywords": [{ "kw": "Tank" }] },
+    { "id": "smp-unit-skirmisher", "name": "Powder Skirmisher", "type": "Unit", "rarity": "Common", "domains": ["Fury"], "energy": 2, "might": 3, "tags": ["Zaun"], "oracle": "Assault 1.", "keywords": [{ "kw": "Assault", "value": 1 }] },
+    { "id": "smp-unit-sniper", "name": "Rooftop Sniper", "type": "Unit", "rarity": "Uncommon", "domains": ["Fury"], "energy": 3, "might": 2, "tags": ["Zaun"], "oracle": "When you play me, deal 2 to a unit in a base.", "keywords": [] },
+    { "id": "smp-unit-warden", "name": "Stalwart Warden", "type": "Unit", "rarity": "Common", "domains": ["Fury"], "energy": 4, "might": 3, "tags": [], "oracle": "Shield 2.", "keywords": [{ "kw": "Shield", "value": 2 }] },
+    { "id": "smp-spell-getex", "name": "Get Excited!", "type": "Spell", "rarity": "Common", "domains": ["Fury"], "energy": 1, "tags": [], "oracle": "Deal 2 to a unit.", "keywords": [] },
+    { "id": "smp-spell-barrage", "name": "Rocket Barrage", "type": "Spell", "rarity": "Uncommon", "domains": ["Fury"], "energy": 3, "tags": [], "oracle": "Repeat 4. Deal 4 to a unit.", "keywords": [{ "kw": "Repeat", "value": 4 }] },
+    { "id": "smp-spell-rally", "name": "Rally the Crew", "type": "Spell", "rarity": "Common", "domains": ["Fury"], "energy": 2, "tags": [], "oracle": "Give a friendly unit +2 Might this turn. Draw a card.", "keywords": [] },
+    { "id": "smp-gear-keg", "name": "Powder Keg", "type": "Gear", "rarity": "Common", "domains": ["Fury"], "energy": 2, "tags": ["Equipment"], "oracle": "Equip 1. Equipped unit has Assault 2.", "keywords": [{ "kw": "Equip", "value": 1 }, { "kw": "Assault", "value": 2 }] },
+    { "id": "smp-bf-market", "name": "Chem Market", "type": "Battlefield", "rarity": "Common", "domains": [], "tags": [], "oracle": "When you conquer here, gain 1 XP.", "keywords": [] },
+    { "id": "smp-bf-pier", "name": "Sump Pier", "type": "Battlefield", "rarity": "Common", "domains": [], "tags": [], "oracle": "When you hold here, draw a card.", "keywords": [] },
+    { "id": "smp-rune-fury", "name": "Fury Rune", "type": "Rune", "rarity": "Common", "domains": ["Fury"], "tags": [], "oracle": "Channel: add 1 energy or 1 Fury power.", "keywords": [] }
+  ]
+}

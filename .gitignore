@@ -1,0 +1,7 @@
+# Generated card database (run tools/fetch_cards.mjs locally to create it)
+data/cards.json
+data/cards.raw.json
+
+# OS / editor cruft
+.DS_Store
+node_modules/
