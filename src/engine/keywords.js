@@ -168,14 +168,22 @@ export const KEYWORDS = {
 
 export const KEYWORD_NAMES = Object.keys(KEYWORDS);
 
+/** Effective keyword list for either a GameObject ({def,grantedKeywords}) or a
+ * raw card def ({keywords}). Granted keywords (from effects) are merged in. */
+export function effectiveKeywords(obj) {
+  if (!obj) return [];
+  if (obj.def) return [...(obj.def.keywords || []), ...(obj.grantedKeywords || [])];
+  return obj.keywords || [];
+}
+
 /** Does this object have a keyword (optionally returning its value)? */
 export function hasKeyword(obj, name) {
-  const list = obj?.keywords || [];
+  const list = effectiveKeywords(obj);
   return list.some((k) => (typeof k === "string" ? k === name : k.kw === name));
 }
 
 export function keywordValue(obj, name) {
-  const list = obj?.keywords || [];
+  const list = effectiveKeywords(obj);
   for (const k of list) {
     if (typeof k === "object" && k.kw === name)
       return k.value ?? KEYWORDS[name]?.default ?? null;
@@ -186,10 +194,11 @@ export function keywordValue(obj, name) {
 /** Permissive keywords that let a card act outside the turn player's main phase. */
 export function timingPermissions(obj) {
   const out = new Set();
-  if (hasKeyword(obj, "Action")) out.add("Action");
   if (hasKeyword(obj, "Reaction")) {
     out.add("Action");
     out.add("Reaction");
+    return out;
   }
+  if (hasKeyword(obj, "Action")) out.add("Action");
   return out;
 }

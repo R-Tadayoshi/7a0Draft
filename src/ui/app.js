@@ -167,17 +167,23 @@ function StatusPanel() {
   const kw = Object.entries(KEYWORDS);
   return html`
     <div class="status">
-      <div class="status-h">Build status — Milestone 1: data pipeline & deck management</div>
+      <div class="status-h">Build status</div>
       <ul>
         <li class="done">✓ Card-data fetcher (<code>tools/fetch_cards.mjs</code>)</li>
         <li class="done">✓ Decklist paste, parse & save (localStorage)</li>
         <li class="done">✓ Core-Rules §103 deck validation (size, copies, domain identity, signatures)</li>
         <li class="done">✓ Game-state model & all ${kw.length} keywords encoded</li>
-        <li class="todo">▢ Live match engine: Chain, priority/focus, turn phases (M2)</li>
-        <li class="todo">▢ Showdowns, combat & scoring to Victory Score 8 (M2)</li>
-        <li class="todo">▢ Effect interpreter + manual card overrides (M3)</li>
-        <li class="todo">▢ Opponent bot AI (M4)</li>
+        <li class="done">✓ Live match engine: turn phases, Chain, priority/focus, showdowns</li>
+        <li class="done">✓ Combat (Might sums, Tank/Backline) & scoring to Victory Score 8</li>
+        <li class="done">✓ Bot opponent + effect interpreter (verified: 200 headless games, 0 stalls)</li>
+        <li class="todo">▢ Interactive board UI to play in-browser (next)</li>
+        <li class="todo">▢ Expand card-effect coverage + manual overrides (ongoing, M3)</li>
+        <li class="todo">▢ Smarter bot: combat math, resource curve, reaction play (M4)</li>
       </ul>
+      <div style=${{ fontSize: "12px", color: "var(--muted)", margin: "0 0 12px" }}>
+        Engine is verified headlessly via <code>node tools/sim.mjs --games 200</code>.
+        The interactive board (play against the bot in this page) is the next step.
+      </div>
       <div class="kw-h">Keywords encoded</div>
       <div class="kw-grid">
         ${kw.map(([name, k]) => html`<span class="kw" key=${name} title=${k.summary}>${name}</span>`)}

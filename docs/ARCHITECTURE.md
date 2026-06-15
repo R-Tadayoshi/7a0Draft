@@ -88,14 +88,26 @@ We **cannot** hand-author 664 cards in one pass, so fidelity is layered:
 
 ## Build milestones
 
-- **M1 — Foundation (in progress):** data pipeline, engine skeleton, zones,
-  turn loop, deck import/save, runnable board, bot that plays legal moves.
-- **M2 — Combat & scoring:** full showdown/combat/damage + Conquer/Hold to 8.
-- **M3 — Effects & keywords:** interpreter + all 22 keywords + override registry.
-- **M4 — Bot intelligence:** heuristics for tempo, board, battlefield contest,
-  combat math, and resource curve.
-- **M5 — Polish:** rules-trace log (every priority pass / trigger shown), undo,
-  deck manager UI, "explain why this is/ isn't legal" tooltips.
+- **M1 — Foundation ✅:** data pipeline, engine skeleton, zones, deck import/save,
+  §103 validation, all 22 keywords encoded.
+- **M2 — Match engine ✅ (headless):** setup/mulligan, full turn structure, Chain
+  + priority/focus, showdowns, combat (Might sums, Tank/Backline damage order),
+  Conquer/Hold scoring to Victory Score 8, a legal-move bot, and a first-pass
+  effect interpreter. Verified by `node tools/sim.mjs --games 200` (0 stalls,
+  0 illegal actions, sensible first-player win rate).
+- **M2.5 — Interactive board (next):** wire the engine into a play UI so you can
+  pilot your deck against the bot in the browser, with a live rules-trace log.
+- **M3 — Effects & keywords:** grow the interpreter, add a manual override
+  registry for cards it can't parse; UI flags any partial card.
+- **M4 — Bot intelligence:** tempo/board/contest/combat-math heuristics, plus
+  Action/Reaction play in showdowns.
+- **M5 — Polish:** mulligan UI, undo, deck manager, "why is this (il)legal?" tips.
+
+### Engine verification
+
+`tools/sim.mjs` plays full bot-vs-bot games headlessly (the engine is pure JS,
+no DOM), which is how M2 was validated and how regressions are caught going
+forward. Run `node tools/sim.mjs --games 200`.
 
 ## Running it
 
